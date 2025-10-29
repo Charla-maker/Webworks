@@ -4,6 +4,7 @@ import { BrandLogos } from '@/components/sections/BrandLogos'
 import { ModernHowItWorks } from '@/components/sections/ModernHowItWorks'
 import { CarShowcase } from '@/components/sections/CarShowcase'
 import { ModernWhyUs } from '@/components/sections/ModernWhyUs'
+import { ModernLocations } from '@/components/sections/ModernLocations'
 import { ModernCTA } from '@/components/sections/ModernCTA'
 import { ModernTestimonials } from '@/components/sections/ModernTestimonials'
 import { ModernFooter } from '@/components/sections/ModernFooter'
@@ -18,6 +19,9 @@ export default function HomePage() {
         <ModernHowItWorks />
         <CarShowcase />
         <ModernWhyUs />
+        <div id="locations">
+          <ModernLocations />
+        </div>
         <ModernCTA />
         <ModernTestimonials />
       </main>

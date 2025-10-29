@@ -10,6 +10,7 @@ export type ButtonProps = {
   href?: string;
   fullWidth?: boolean;
   type?: "button" | "submit" | "reset";
+  disabled?: boolean;
 };
 
 export const Button = ({
@@ -21,6 +22,7 @@ export const Button = ({
   href,
   fullWidth = false,
   type = "button",
+  disabled = false,
 }: ButtonProps) => {
   const baseStyles =
     "inline-flex items-center justify-center font-semibold transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2";
@@ -43,9 +45,10 @@ export const Button = ({
   };
 
   const widthClass = fullWidth ? "w-full" : "";
-  const classes = `${baseStyles} ${variants[variant]} ${sizes[size]} ${widthClass} ${className}`;
+  const disabledClass = disabled ? "opacity-50 cursor-not-allowed" : "";
+  const classes = `${baseStyles} ${variants[variant]} ${sizes[size]} ${widthClass} ${disabledClass} ${className}`;
 
-  if (href) {
+  if (href && !disabled) {
     // Check if it's an external link or anchor
     if (href.startsWith('http') || href.startsWith('tel:') || href.startsWith('mailto:') || href.startsWith('#')) {
       return (
@@ -64,7 +67,7 @@ export const Button = ({
   }
 
   return (
-    <button onClick={onClick} type={type} className={classes}>
+    <button onClick={onClick} type={type} className={classes} disabled={disabled}>
       {children}
     </button>
   );
